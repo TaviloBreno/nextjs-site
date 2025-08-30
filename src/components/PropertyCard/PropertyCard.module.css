@@ -1,0 +1,107 @@
+.propertyCard {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.propertyCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.propertyImage {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.propertyCard:hover .image {
+  transform: scale(1.05);
+}
+
+.propertyBadge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #2c5aa0;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.propertyInfo {
+  padding: 1.5rem;
+}
+
+.propertyInfo h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.propertyLocation {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.locationIcon {
+  margin-right: 5px;
+  color: #2c5aa0;
+}
+
+.propertyFeatures {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.propertyFeatures span {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.featureIcon {
+  margin-right: 5px;
+  color: #2c5aa0;
+}
+
+.propertyPrice {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c5aa0;
+  margin-bottom: 1rem;
+}
+
+.btnDetails {
+  background: #2c5aa0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+  width: 100%;
+}
+
+.btnDetails:hover {
+  background: #1e3d6f;
+}
+
+@media (max-width: 768px) {
+  .propertyFeatures {
+    justify-content: space-between;
+  }
+}
