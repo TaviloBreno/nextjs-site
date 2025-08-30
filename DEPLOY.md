@@ -43,8 +43,11 @@ O GitHub Actions irá automaticamente:
 ### `next.config.js`
 - ✅ `output: 'export'` - Habilita exportação estática
 - ✅ `trailingSlash: true` - Adiciona barra no final das URLs
-- ✅ `images.unoptimized: true` - Desabilita otimização de imagens
-- ✅ `distDir: 'out'` - Define pasta de saída
+- ✅ `skipTrailingSlashRedirect: true` - Evita redirecionamentos desnecessários
+- ✅ `distDir: 'out'` - Define diretório de saída
+- ✅ `basePath: '/nextjs-site'` - Configura o caminho base para GitHub Pages
+- ✅ `assetPrefix: '/nextjs-site'` - Define prefixo para assets estáticos
+- ✅ `images.unoptimized: true` - Desabilita otimização de imagens para static export
 
 ### `package.json`
 - ✅ `build:static` - Script para build estático
@@ -77,12 +80,21 @@ npm run build:static
 npx serve out
 ```
 
+## 🔧 Correção de Erros 404 em Produção
+
+Os erros 404 que estavam ocorrendo em produção foram corrigidos através da configuração adequada do `basePath` e `assetPrefix` no `next.config.js`. Estes erros aconteciam porque:
+
+1. **Problema**: O Next.js estava gerando caminhos absolutos (`/_next/static/...`) que não funcionam no GitHub Pages quando o repositório não é `username.github.io`
+2. **Solução**: Configuração do `basePath: '/nextjs-site'` e `assetPrefix: '/nextjs-site'` para que todos os assets sejam carregados com o prefixo correto
+3. **Resultado**: Todos os arquivos CSS, JS, fontes e outros assets agora são carregados corretamente de `https://tavilobreno.github.io/nextjs-site/_next/static/...`
+
 ## 📝 Notas Importantes
 
 1. **Imagens**: Todas as imagens são servidas sem otimização
 2. **Rotas**: Todas as rotas são pré-renderizadas como HTML estático
 3. **APIs**: Funcionalidades server-side não funcionarão (formulários usam simulação)
 4. **Updates**: Qualquer push para `main` triggera novo deploy automaticamente
+5. **IMPORTANTE**: Se você alterar o nome do repositório, também deve atualizar o `basePath` e `assetPrefix` no `next.config.js`
 
 ## 🔍 Troubleshooting
 
