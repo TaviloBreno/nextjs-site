@@ -4,6 +4,8 @@ const nextConfig = {
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
   distDir: 'out',
+  basePath: '/nextjs-site',
+  assetPrefix: '/nextjs-site',
   images: {
     unoptimized: true,
     remotePatterns: [
