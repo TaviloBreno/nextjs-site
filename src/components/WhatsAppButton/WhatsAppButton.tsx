@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWhatsapp, faTimes } from '@fortawesome/free-brands-svg-icons';
-import { faTimes as faTimesRegular } from '@fortawesome/free-solid-svg-icons';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import styles from './WhatsAppButton.module.css';
 
 interface WhatsAppButtonProps {
@@ -32,7 +32,7 @@ export default function WhatsAppButton({
       {/* Botão Principal */}
       <div className={styles.whatsappButton} onClick={toggleExpanded}>
         <FontAwesomeIcon 
-          icon={isExpanded ? faTimesRegular : faWhatsapp} 
+          icon={isExpanded ? faTimes : faWhatsapp} 
           className={styles.icon}
         />
       </div>
